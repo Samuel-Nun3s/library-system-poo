@@ -21,7 +21,7 @@ export default class User {
   }
 
   canLend() {
-    if (this.#activeLoans.length === 3) {
+    if (this.#activeLoans.length === this.#maxLoans) {
       return false
     }
     return true;
@@ -29,8 +29,6 @@ export default class User {
 
   addLoan(borrowedBook: Book) {
     if (this.canLend()) {
-      this.#maxLoans += 1;
-
       return this.#activeLoans.push(borrowedBook);
     }
     throw new Error("Voce ja atingiu o nivel maximo de emprestimos");
@@ -47,7 +45,7 @@ export default class User {
   }
 
   getActiveLoans() {
-    return this.#activeLoans;
+    return [...this.#activeLoans];
   }
 
   getUserId() {
