@@ -45,4 +45,8 @@ export default class Loan {
   thisIsLate(currentDate: Date) {}
 
   calculateFine(currentDate: Date) {}
+
+  getLoanId() {
+    return this.#id;
+  }
 } 

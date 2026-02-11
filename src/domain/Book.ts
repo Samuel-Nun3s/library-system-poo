@@ -38,4 +38,8 @@ export default class Book {
   isAvailable() {
     return this.#available;
   }
+
+  getBookId() {
+    return this.#id;
+  }
 }
